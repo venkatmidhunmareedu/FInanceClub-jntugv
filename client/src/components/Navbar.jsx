@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState , useEffect } from 'react';
 
 
 export default function Navbar() {
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+        console.log("hitted")
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [screenWidth]);
     return (
         <div >
-            <br />
-            <nav className="navbar navbar-expand-lg bg-white shadow fixed-top mt-4">
+            <nav className="navbar navbar-expand-lg bg-white shadow fixed-top">
                 <div className="container-fluid mx-5" >
 
                     <a class="navbar-brand" href="#" className='nav-img'><div class="container">
-                        <img src="jntugv.png" alt="Your Image" style={{width : "250px"}} class="img-fluid d-none d-sm-block" />
+                        <img src={window.innerWidth > 400 ? "jntugv.png" : "jntugv-footer.png"} alt="Your Image" style={window.innerWidth > 400 ? { width: "250px" } : { width: "80px" }} class="img-fluid" />
                     </div>
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

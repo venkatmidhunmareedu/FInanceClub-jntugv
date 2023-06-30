@@ -34,6 +34,15 @@ body , html {
 .lt-sz-1 {
     font-size: large;
 }
+
+a {
+    text-decoration: none;
+    color: #7d2ae8;
+}
+
+.color-1 {
+  color : #7d2ae8;
+}
 /* button nav */
 
 .button {
@@ -177,7 +186,7 @@ body , html {
   .btn:hover::after {
     height: 100%;
     transition-delay: 0.4s;
-    color:.btn {
+    color:btn {
   font-size: 17px;
   background: transparent;
   border: none;
