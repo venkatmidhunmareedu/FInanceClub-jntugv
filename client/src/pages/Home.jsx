@@ -11,7 +11,7 @@ const Home = () => {
             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             <div className="container">
                 <div className="row text-center">
-                    <p className="babus fw-bolder text-lg-spacing fs-1 lt-sp-1 lt-sz-1">GVPEOPLE BLOGS</p>
+                    <p className="babus fw-bolder text-lg-spacing fs-1 lt-sp-1 lt-sz-1 ">GV<span className="color-1">PEOPLE BLOGS</span></p>
                     <div className="text-center row link-active ">
                         <div className="text-center mb-4">
                             <div className="col-2 ">

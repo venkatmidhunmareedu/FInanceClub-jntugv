@@ -8,9 +8,10 @@ export default function Filter() {
                     Select Catogery <i class="bi bi-chevron-down"></i>
                 </button>
                 <ul class="dropdown-menu color-1">
-                    <li><a class="dropdown-item color-1 fw-bolder " href="#">Action</a></li>
-                    <li><a class="dropdown-item color-1 fw-bolder " href="#">Another action</a></li>
-                    <li><a class="dropdown-item color-1 fw-bolder " href="#">Something else here</a></li>
+                    <li><a class="dropdown-item color-1 fw-bolder text-uppercase" href="#">leader ship</a></li>
+                    <li><a class="dropdown-item color-1 fw-bolder text-uppercase" href="#">electornics</a></li>
+                    <li><a class="dropdown-item color-1 fw-bolder text-uppercase" href="#">WEB DEVELOPMENT</a></li>
+                    <li><a class="dropdown-item color-1 fw-bolder text-uppercase" href="#">AI AND ML</a></li>
                 </ul>
             </div>
         </div>
