@@ -33,8 +33,11 @@ Create a `.env` file in the `server` directory and set the necessary environment
 
 #### Run the React frontend (client)
 
-''' cd client 
-    npm start '''
+''' 
+cd client 
+npm start 
+
+'''
 
 
 This will start the development server for the React frontend. Open your browser and visit `http://localhost:3000` to see the website.
