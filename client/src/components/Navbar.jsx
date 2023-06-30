@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from 'react';
-
+import {Link} from "react-router-dom"
 
 export default function Navbar() {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -31,7 +31,7 @@ export default function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0 open-sans dark fs-6 text-uppercase">
                             <li className="nav-item">
-                                <a className="nav-link link-active mx-4" aria-current="page" href="#">Home</a>
+                                <a className="nav-link link-active mx-4" aria-current="page" href="/home">Home</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link  mx-4" aria-current="page" href="#">Popular today</a>
