@@ -15,7 +15,9 @@ To get started with the JNTUGV College Blogging Website, follow these steps:
 
 ### 1. Clone the repository
 
-'''git clone https://github.com/your-username/jntugv-college-blogging-website.git'''
+```bash
+git clone https://github.com/your-username/jntugv-college-blogging-website.git
+```
 
 
 ### 2. Install dependencies
