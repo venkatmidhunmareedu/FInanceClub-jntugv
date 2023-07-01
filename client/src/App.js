@@ -1,5 +1,7 @@
 import React from "react";
 import Home from "./pages/Home";
+import BlogPage from "./pages/Blog";
+
 import {
   BrowserRouter,
   Routes,
@@ -12,7 +14,8 @@ function App() {
   return (
     <BrowserRouter >
       <Routes>
-        <Route exact path='/home' element={< Home />}></Route>  
+        <Route exact path='/' element={< Home />}></Route> 
+        <Route exact path='/blog' element={< BlogPage />}></Route> 
       </Routes>
     </BrowserRouter>
   );

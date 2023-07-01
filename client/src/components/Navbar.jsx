@@ -1,5 +1,5 @@
-import React, { useState , useEffect } from 'react';
-import {Link} from "react-router-dom"
+import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom"
 
 export default function Navbar() {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -18,7 +18,7 @@ export default function Navbar() {
     }, [screenWidth]);
     return (
         <div >
-            <nav className="navbar navbar-expand-lg bg-white shadow fixed-top">
+            <nav className="navbar navbar-expand-lg bg-white shadow ">
                 <div className="container-fluid mx-5" >
 
                     <a class="navbar-brand" href="#" className='nav-img'><div class="container">
@@ -31,7 +31,7 @@ export default function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0 open-sans dark fs-6 text-uppercase">
                             <li className="nav-item">
-                                <a className="nav-link link-active mx-4" aria-current="page" href="/home">Home</a>
+                                <a className="nav-link link-active mx-4" aria-current="page" href="/">Home</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link  mx-4" aria-current="page" href="#">Popular today</a>
@@ -63,6 +63,7 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
+            <br /><br /><br /><br /><br />
         </div>
     );
 }
