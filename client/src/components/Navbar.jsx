@@ -18,7 +18,7 @@ export default function Navbar() {
     }, [screenWidth]);
     return (
         <div >
-            <nav className="navbar navbar-expand-lg bg-white shadow ">
+            <nav className="navbar navbar-expand-lg bg-white shadow fixed-top">
                 <div className="container-fluid mx-5" >
 
                     <a class="navbar-brand" href="#" className='nav-img'><div class="container">
@@ -63,7 +63,8 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
-            <br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br />
+            
         </div>
     );
 }
