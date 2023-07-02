@@ -48,7 +48,7 @@ This will start the development server for the React frontend. Open your browser
 
 ```bash
 cd server
-npm start
+node index.js
 ```
 
 This will start the Node.js backend server.
