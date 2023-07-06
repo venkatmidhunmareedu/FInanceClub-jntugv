@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Filter() {
     return (
-        <div className="container">
+        <div className="container d-flex justify-content-center">
             <div class="dropdown open-sans">
                 <button class="btn dropdown-toggle color-1 fw-bolder" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Select Catogery <i class="bi bi-chevron-down"></i>

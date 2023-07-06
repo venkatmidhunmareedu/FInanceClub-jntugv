@@ -3,7 +3,11 @@ const mongoose = require("mongoose")
 const Blog = require("../models/Blog")
 
 exports.getBlogs = function (req,res) {
-    Blog.find({}).then((data) => {
+    const { size, pagenum  } = req.query
+    var query = {}
+    query.skip = parseInt(size) * parseInt(pagenum - 1)
+    query.limit = parseInt(size)
+    Blog.find({},{},query).then((data) => {
         res.status(200).json({
             data  : data,
             count : data.length
