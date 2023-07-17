@@ -35,13 +35,7 @@
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
   <script>
-    document.querySelectorAll('#nav-tab>[data-bs-toggle="tab"]').forEach(el => {
-      el.addEventListener('shown.bs.tab', () => {
-        const target = el.getAttribute('data-bs-target')
-        const scrollElem = document.querySelector(`${target} [data-bs-spy="scroll"]`)
-        bootstrap.ScrollSpy.getOrCreateInstance(scrollElem).refresh()
-      })
-    });
+   
   </script>
 </body>
 
