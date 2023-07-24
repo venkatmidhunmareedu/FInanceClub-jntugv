@@ -45,6 +45,9 @@ export default function Navbar() {
                             <li className="nav-item">
                                 <a className="nav-link  mx-4" aria-current="page" href="#">News</a>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link  mx-4" aria-current="page" to="/login">Login</Link>
+                            </li>
 
                         </ul>
                         <form className="d-flex" role="search">

@@ -18,16 +18,20 @@ const Home = () => {
         const fetchData = async () => {
 
             try {
-                const Response = await axios.get('http://localhost:5000/getall');
+                setisLoaded(false)
+                const Response = await axios.get(`${process.env.REACT_APP_URL}/getall`);
+                // const Response = await axios.get(`https://e6fe-2409-40f0-1038-ecc0-4070-c81b-9949-b150.ngrok-free.app/getall`);
+                console.log(process.env.REACT_APP_URL)
+                console.log(Response.data.data)
                 setblogs(Response.data.data);
                 setisLoaded(true)
             } catch (error) {
                 console.error(error);
             }
         };
-
         fetchData();
     }, []);
+
     return (
         <>
             {isLoaded ? "" : <PageLoader />}
