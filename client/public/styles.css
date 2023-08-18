@@ -28,6 +28,7 @@ html {
   color: #7d2ae8;
 }
 
+
 .nav-img {
   width: "350px";
 }
@@ -450,4 +451,21 @@ a {
  .common-btn:active:before {
   background: var(--primary);
   transition: background 0s;
+ }
+
+ .btn.btn-outline-primary {
+  color : #7D2AE8;
+  background-color: #F5F2F6;
+  border-color: #7D2AE8;
+ }
+
+ .btn.btn-outline-primary:hover {
+  color : white;
+  background-color: #7D2AE8;
+  border-color: white;
+ }
+
+
+ .page-link {
+  color :#7D2AE8;
  }

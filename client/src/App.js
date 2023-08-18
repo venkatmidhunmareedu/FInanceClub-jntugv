@@ -10,6 +10,7 @@ import {
 }
   from 'react-router-dom';
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       <Routes>
         <Route exact path="/login" element={<Login />} > </Route> 
         <Route exact path='/' element={< Home />}></Route> 
-        <Route exact path='/blog' element={< BlogPage />}></Route> 
+        <Route exact path='/blog' element={< BlogPage />}></Route>
+        <Route exact path='/register' element={< Register />}></Route>         
       </Routes>
     </BrowserRouter>
   );

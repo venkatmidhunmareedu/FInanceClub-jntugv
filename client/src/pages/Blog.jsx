@@ -8,7 +8,6 @@ const BlogPage = (props) => {
     return (<div>
         <Navbar />
         <BlogContent />
-        <PageLoader />
     </div>)
 }
 

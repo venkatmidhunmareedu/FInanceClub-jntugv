@@ -8,10 +8,10 @@ export default function Footer() {
                     <div class="col-lg-3 mb-3">
                         <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" href="/" aria-label="Bootstrap">
                             <img src="jntugv-footer.png" alt="" width="50px"/>
-                            <span class="fs-5">GVBLOG</span>
+                            <span class="fs-5">FINANCE CLUB</span>
                         </a>
                         <ul class="list-unstyled small">
-                            <li class="mb-2">Designed and built with all the love in the world by the <a href="/docs/5.3/about/team/">GV team</a> with the help of <a href="">our contributors</a>.</li>
+                            <li class="mb-2">Designed and built with all the love in the world by the <a href="">Finance club</a> with the help of <a href="">our contributors</a>.</li>
                             <li class="mb-2">Currently v1.0.0.</li>
                         </ul>
                     </div>
