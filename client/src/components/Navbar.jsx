@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
 
-export default function Navbar() {
+export default function Navbar(props) {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
+    const navs = ['Home', 'Notifications', 'Events', 'News', 'Login', 'Profile'];
+    const [currentNav, setNav] = useState(props.current)
     useEffect(() => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
@@ -15,7 +16,9 @@ export default function Navbar() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [screenWidth]);
+    }, [screenWidth, currentNav]);
+
+
     return (
         <div >
             <nav className="navbar navbar-expand-lg bg-white shadow fixed-top">
@@ -34,19 +37,22 @@ export default function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-sm-2 mb-lg-0 open-sans dark fs-6 ">
                             <li className="nav-item">
-                                <a className="nav-link mx-4" aria-current="page" href="/">Home</a>
+                                <a className={`${currentNav == "Home" && "link-active"}  nav-link mx-4`} aria-current="page" href="/"  >Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link mx-4 " aria-current="page" href="#">Notifications</a>
+                                <a className={`${currentNav == "Notifications" && "link-active"}  nav-link mx-4`} aria-current="page" href="/notifications"   >Notifications</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link  mx-4" aria-current="page" href="#">Events</a>
+                                <a className={`${currentNav == "Events" && "link-active"}  nav-link mx-4`} aria-current="page" href="/events"  >Events</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link  mx-4" aria-current="page" href="#">News</a>
+                                <a className={`${currentNav == "News" && "link-active"}  nav-link mx-4`} aria-current="page" href="/news" >News</a>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link  mx-4" aria-current="page" to="/login">Login</Link>
+                                <Link className={`${currentNav == "Login" && "link-active"}  nav-link mx-4`} aria-current="page" to="/login"  >Login</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className={`${currentNav == "Profile" && "link-active"}  nav-link mx-4`} aria-current="page" to="/profile"  >Profile</Link>
                             </li>
 
                         </ul>

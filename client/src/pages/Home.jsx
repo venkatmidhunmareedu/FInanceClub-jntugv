@@ -38,7 +38,7 @@ const Home = () => {
         <>
             {/* {isLoaded ? "" : <PageLoader />} */}
             <div className={isLoaded ? `` : ``}>
-                <Navbar />
+                <Navbar current="Home" />
                 <div className="container">
                     <div className="row ">
                         <p className="babus fw-bolder text-lg-spacing fs-1 lt-sp-1 lt-sz-1 text-center mb-5">FINANCE CLUB <span className="color-1">PEOPLE BLOGS</span></p>
