@@ -13,8 +13,8 @@ export default function RecipeReviewCard(props) {
                             <small className="col text-end text-secondary">- Created on 24th August, 2023</small>
                         </div>
 
-                        <small className='text-secondary'>{props.content}By <a href="">{props.user}</a></small>
-                        ...<a href="/blog"> Read Article </a>
+                        <small className='text-secondary'>{props.content}By <a href="">{props.user} </a> </small>
+                        ... <a href="/blog"> Read Article </a>
                         <div className='row'>
                             <small className="col text-end text-secondary">- Modified on 24th August, 2023</small>
                         </div>

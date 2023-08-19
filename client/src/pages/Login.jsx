@@ -15,7 +15,7 @@ const Login = () => {
                         <p className="babus fw-bolder text-lg-spacing fs-1 lt-sp-1 lt-sz-1 text-center ">GV<span className="color-1">PEOPLE LOGIN</span></p>
 
                         <div class="form-floating mb-3 open-sans fw-bolder text-secondary">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="roll number" />
+                            <input type="text" class="form-control text-uppercase open-sans fw-bolder" id="floatingInput" placeholder="roll number" />
                             <label for="floatingInput">Roll number</label>
                         </div>
                         <div class="form-floating mb-3 open-sans fw-bolder text-secondary">

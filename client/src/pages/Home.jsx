@@ -108,7 +108,7 @@ const Home = () => {
                             <div className="container-fluid">
                                 <div className="row d-flex justify-content-start">
                                     {blogs_1.map((blog) => {
-                                        return <BlogCard title={blog.title} genre={blog.genre} content={blog.content.slice(0, 90) + "..."} user={blog.user} />
+                                        return <BlogCard title={blog.title} genre={blog.genre} content={blog.content.slice(0, 90) + "...  "} user={blog.user} />
                                     })}
                                 </div>
                             </div>
