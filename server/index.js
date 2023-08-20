@@ -11,12 +11,13 @@ const app = express()
 
 Connection() //DB connection
 
-app.use(cors())
-app.use(bodyParser.urlencoded({ extended: true }))
-
+app.use(express.json())
+app.use(bodyParser.json());
+app.use(cors());
+app.use(express.urlencoded({ extended: false }));
 
 app.use( "/", homeRoute);
-app.use("/user" , userRoute )
+app.use("/user" , userRoute)
 
 
 app.listen(5000, () => {

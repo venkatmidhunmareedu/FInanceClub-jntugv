@@ -3,7 +3,7 @@ import { Fade } from "react-awesome-reveal"
 
 export default function RecipeReviewCard(props) {
     return (
-        <div className='col-xl-12 col-lg-4 col-md-2 col-sm-1 mb-2 open-sans dark d-flex justify-content-center'>
+        <div className='col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2 open-sans dark d-flex justify-content-center'>
             <div className="card" style={{ width: "100%" }}>
                 <Fade>
                     <div className="card-body text-start">

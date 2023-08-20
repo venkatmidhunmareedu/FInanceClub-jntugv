@@ -469,3 +469,8 @@ a {
 .link-active {
   color :#7D2AE8;
 }
+
+
+.cursor-pointer {
+  cursor: pointer;
+}

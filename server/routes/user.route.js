@@ -1,9 +1,11 @@
 const mongoose = require("mongoose")
 const express =  require("express")
-const { addBlog } = require("../controllers/user.route.controller")
+const { addBlog, addUser, userIdCheck } = require("../controllers/user.route.controller")
 
 const router = express.Router()
 
-router.get("/add" , addBlog)
+router.get("/addBlog" , addBlog);
+router.get("/addUser" , addUser);
+router.get("/userIdCheck" , userIdCheck);
 
 module.exports = router
