@@ -1,24 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { Fade } from 'react-awesome-reveal';
+import axios from 'axios';
+
 
 export default function Navbar(props) {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const navs = ['Home', 'Notifications', 'Events', 'News', 'Login', 'Profile'];
     const [currentNav, setNav] = useState(props.current)
+    const [token, setToken] = useState("");
+    const [isAuth, setAuth] = useState(false);
+
     useEffect(() => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
         };
+        setToken(localStorage.getItem("jwtToken"));
+        console.log("hello : "+token);
+        const params = {
+            token: token
+        }
+        try {
+            const response = axios.get(process.env.REACT_APP_URL + "/user/verifyAuth", { params })
+            setAuth(response.data.auth);
+        }
+        catch(err) {
 
+        }
         window.addEventListener('resize', handleResize);
-        console.log("hitted")
-
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [screenWidth, currentNav]);
-
+    }, [screenWidth, currentNav , isAuth]);
 
     return (
         <div >
@@ -51,9 +64,15 @@ export default function Navbar(props) {
                                 <li className="nav-item">
                                     <a className={`${currentNav == "News" && "link-active"}  nav-link mx-4`} aria-current="page" href="/news" >News</a>
                                 </li>
-                                <li className="nav-item">
+                                {isAuth ? <li className="nav-item">
+                                    <Link className={`${currentNav == "Login" && "link-active"}  nav-link mx-4`} aria-current="page" onClick={(e) => {
+                                        e.preventDefault();
+                                        localStorage.setItem("wtToken", "")
+                                        redirect("/")
+                                    }}  ></Link>
+                                </li> : <li className="nav-item">
                                     <Link className={`${currentNav == "Login" && "link-active"}  nav-link mx-4`} aria-current="page" to="/login"  >Login</Link>
-                                </li>
+                                </li>}
                                 <li className="nav-item">
                                     <Link className={`${currentNav == "Profile" && "link-active"}  nav-link mx-4`} aria-current="page" to="/profile"  >Profile</Link>
                                 </li>
@@ -69,7 +88,6 @@ export default function Navbar(props) {
 
             </nav>
             <br /><br /><br /><br /><br /><br />
-
         </div >
     );
 }

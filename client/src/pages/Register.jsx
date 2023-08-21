@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { redirect, Link } from "react-router-dom";
+import { redirect, Link, useNavigate } from "react-router-dom";
 import PasswordChecklist from "react-password-checklist"
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const [password, setPassword] = useState("")
@@ -13,6 +15,7 @@ const Register = () => {
     const [user_name, setName] = useState("");
     const [isAvail, setAvail] = useState(false);
     const [isUserValid, setUserValid] = useState(false);
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -42,10 +45,52 @@ const Register = () => {
         return response.data.user_check;
     }
 
+    const notify = (inp) => {
+        toast.success(inp, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
+    }
+
+    const createUser = async (e) => {
+        const params = {
+            user_name: user_name,
+            password: password
+        }
+        const response = await axios.get("http://localhost:5000/user/addUser", {
+            params
+        }).then((res) => {
+            setTimeout(function () {
+                navigate("/login")
+            }, 2000);
+            notify(res.data.success ? "User creation Successful" : "User Creation is Not Succcessful Try Again")
+        })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 
 
     return (
         <div className="open-sans fw-bolder ">
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
             <div className="container d-flex align-items-center justify-content-center" >
                 <form className=" col-sm-5 col-lg-4 col-xl-4 p-4" >
                     <div className="text-center">
@@ -61,8 +106,8 @@ const Register = () => {
                         <div className={`${!user_name.length > 0 ? "invalid-feedback" : "d-none"}`}>
                             Enter username
                         </div>
-                        <div className={`${ (!validateUser(user_name) && user_name.length > 0) ? "invalid-feedback" : "d-none"}`}>
-                            Username should be in range(6,10), start with a letter and consists only numbers, letters and _ 
+                        <div className={`${(!validateUser(user_name) && user_name.length > 0) ? "invalid-feedback" : "d-none"}`}>
+                            Username should be in range(6,10), start with a letter and consists only numbers, letters and _
                         </div>
                         <div class={`${isAvail ? "invalid-feedback" : "d-none"}`}>
                             Username alredy exists
@@ -122,7 +167,10 @@ const Register = () => {
                     />
 
                     <div className="text-center">
-                        <button class={`btn btn-outline-primary fw-bolder ${validCheck && !isAvail && user_name.length > 0 && validateUser(user_name) ? "" : "disabled"}`} onClick={(e) => { e.preventDefault() }}   >
+                        <button class={`btn btn-outline-primary fw-bolder ${validCheck && !isAvail && user_name.length > 0 && validateUser(user_name) ? "" : "disabled"}`} onClick={(e) => {
+                            e.preventDefault();
+                            createUser();
+                        }}   >
                             Register
                         </button>
                     </div>

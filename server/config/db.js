@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const Connection = function () {
-    mongoose.connect('mongodb://127.0.0.1:27017/GVBlogDB', {
+    mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true
   }).then(() => {
     console.log("connected!")

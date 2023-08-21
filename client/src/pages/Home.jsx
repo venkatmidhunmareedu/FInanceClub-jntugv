@@ -9,13 +9,22 @@ import Loader from "../loaders/Loader";
 import HorizontalScrollbar from "../components/HorizontalScrollbar";
 import blogs_1 from "../data/blogs";
 import { TypeAnimation } from 'react-type-animation';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Home = () => {
+    const [user, setUser] = useState({});
     const [blogs, setblogs] = useState([])
     const [isLoaded, setisLoaded] = useState(false)
 
+    try {
+        const token = localStorage.getItem("jwtToken");
+        console.log("token is " + token);
+    }
+    catch (err) {
+    }
     useEffect(() => {
         setisLoaded(false)
         const fetchData = async () => {
