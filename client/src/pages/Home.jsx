@@ -11,7 +11,7 @@ import blogs_1 from "../data/blogs";
 import { TypeAnimation } from 'react-type-animation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
@@ -19,12 +19,6 @@ const Home = () => {
     const [blogs, setblogs] = useState([])
     const [isLoaded, setisLoaded] = useState(false)
 
-    try {
-        const token = localStorage.getItem("jwtToken");
-        console.log("token is " + token);
-    }
-    catch (err) {
-    }
     useEffect(() => {
         setisLoaded(false)
         const fetchData = async () => {
@@ -42,6 +36,7 @@ const Home = () => {
         };
         fetchData();
     }, []);
+    const navigate = useNavigate();
 
     return (
         <>
@@ -139,6 +134,24 @@ const Home = () => {
                 </div>
 
                 <Footer />
+                {/* <div className="model fade show open-sans"   tabindex="-1" role="dialog">
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content">
+                            <div className="modal-header text-center">
+                                <p className="modal-title fs-5" >Session Expired</p>
+                            </div>
+                            <div className="modal-body">
+                                The session duration has ended. Please login again to continue!
+                            </div>
+                            <div className="modal-footer text-center d-flex justify-content-center align-items-center ">
+                                <button type="button" className="btn btn-outline-primary btn-sm open-sans fw-bolder" onClick={(e) => {
+                                    e.preventDefault()
+                                    navigate();
+                                }}>Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
             </div>
         </>
     )

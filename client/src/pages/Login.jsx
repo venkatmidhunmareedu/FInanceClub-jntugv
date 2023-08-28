@@ -32,6 +32,7 @@ const Login = () => {
         if (response.data.success) {
             setToken(response.data.token);
             localStorage.setItem("jwtToken", response.data.token);
+            localStorage.setItem("verifyAuth" , true);
             toast.success("Login Successfull!", {
                 position: "top-right",
                 autoClose: 5000,
@@ -94,14 +95,11 @@ const Login = () => {
                             </div>
                             <span className="input-group-text bg-white"><i class={`bi bi-eye${hide ? "-slash" : ""} cursor-pointer`} onClick={(e) => { setHide((prev) => !prev) }}></i></span>
                         </div>
-                        <div className="d-flex row">
-                            <div className="col mb-3 form-check">
-                                <a href="/register" className="fw-bold">Register here!</a>
-                            </div>
-                            <div className="text-end col">
+                        {/* <div className="d-flex row">
+                            <div className="text-center col mb-3">
                                 <a href="" className="fw-bold">Forget password?</a>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="text-center">
                             <button class="btn btn-outline-primary fw-bolder" onClick={(e) => { e.preventDefault(); login(); }}>
                                 Submit

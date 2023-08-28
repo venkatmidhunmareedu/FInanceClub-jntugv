@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, redirect } from "react-router-dom";
+import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
 import { Fade } from 'react-awesome-reveal';
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 export default function Navbar(props) {
@@ -10,13 +11,15 @@ export default function Navbar(props) {
     const [currentNav, setNav] = useState(props.current)
     const [token, setToken] = useState("");
     const [isAuth, setAuth] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
+
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
         };
         setToken(localStorage.getItem("jwtToken"));
-        console.log("hello : "+token);
+        console.log("hello : " + token);
         const params = {
             token: token
         }
@@ -24,14 +27,14 @@ export default function Navbar(props) {
             const response = axios.get(process.env.REACT_APP_URL + "/user/verifyAuth", { params })
             setAuth(response.data.auth);
         }
-        catch(err) {
-
+        catch (err) {
+            console.log(err);
         }
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [screenWidth, currentNav , isAuth]);
+    }, [screenWidth, currentNav, isAuth]);
 
     return (
         <div >
@@ -64,28 +67,63 @@ export default function Navbar(props) {
                                 <li className="nav-item">
                                     <a className={`${currentNav == "News" && "link-active"}  nav-link mx-4`} aria-current="page" href="/news" >News</a>
                                 </li>
-                                {isAuth ? <li className="nav-item">
-                                    <Link className={`${currentNav == "Login" && "link-active"}  nav-link mx-4`} aria-current="page" onClick={(e) => {
-                                        e.preventDefault();
-                                        localStorage.setItem("wtToken", "")
-                                        redirect("/")
-                                    }}  ></Link>
-                                </li> : <li className="nav-item">
-                                    <Link className={`${currentNav == "Login" && "link-active"}  nav-link mx-4`} aria-current="page" to="/login"  >Login</Link>
-                                </li>}
-                                <li className="nav-item">
-                                    <Link className={`${currentNav == "Profile" && "link-active"}  nav-link mx-4`} aria-current="page" to="/profile"  >Profile</Link>
-                                </li>
+                                {
+                                    !localStorage.getItem("verifyAuth") === true ? <li className="nav-item">
+                                        <Link className={`${currentNav == "Login" && "link-active"}  nav-link mx-4`} aria-current="page" to="/login"  >Login</Link>
+                                    </li> :
+                                        <li className="nav-item">
+                                            <Link className={`${currentNav == "Login" && "link-active"}  nav-link mx-4`} aria-current="page" onClick={
+                                                (e) => {
+                                                    e.preventDefault();
+                                                    localStorage.removeItem("jwtToken");
+                                                    localStorage.removeItem("verifyAuth", false);
+                                                    console.log(localStorage)
+                                                    navigate("/login");
+                                                }
 
+                                            } >Log out</Link>
+                                        </li>
+                                }
+                                {
+                                    localStorage.getItem("verifyAuth") ? <li className="nav-item">
+                                        <Link className={`${currentNav == "Profile" && "link-active"}  nav-link mx-4`} aria-current="page" to="/profile"  >Profile</Link>
+                                    </li> : ""
+                                }
                             </ul>
-                            <button class="button mb-sm-1 p-3 open-sans fw-bold  shadow">
+                            <button class="button mb-sm-1 p-3 open-sans fw-bold  shadow" onClick={(e) => {
+                                e.preventDefault();
+                                if (!localStorage.getItem("verifyAuth")) {
+                                    toast.info("Please Login!", {
+                                        position: "top-right",
+                                        autoClose: 2000,
+                                        hideProgressBar: true,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: true,
+                                        progress: undefined,
+                                        theme: "colored",
+                                    });
+                                }
+                            }}>
                                 Blog Now
                             </button>
 
                         </div>
                     </Fade>
-                </div>
 
+                </div>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
             </nav>
             <br /><br /><br /><br /><br /><br />
         </div >

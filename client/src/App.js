@@ -6,7 +6,8 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link
+  Link,
+  useNavigate
 }
   from 'react-router-dom';
 import Login from "./pages/Login";
@@ -20,18 +21,21 @@ import Profile from "./pages/Profile";
 
 function App() {
   return (
-    <BrowserRouter >
-      <Routes>
-        <Route exact path="/login" element={<Login />} > </Route>
-        <Route exact path='/' element={< Home />}></Route>
-        <Route exact path='/blog' element={< BlogPage />}></Route>
-        <Route exact path='/register' element={< Register />}></Route>
-        <Route exact path='/events' element={< Events />}></Route>
-        <Route exact path='/notifications' element={< Notifications />}></Route>
-        <Route exact path='/profile' element={< Profile />}></Route>
-        <Route exact path='/news' element={< News />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter >
+        <Routes>
+          <Route exact path="/login" element={<Login />} > </Route>
+          <Route exact path='/' element={< Home />}></Route>
+          <Route exact path='/blog' element={< BlogPage />}></Route>
+          <Route exact path='/register_admin_blog' element={< Register />}></Route>
+          <Route exact path='/events' element={< Events />}></Route>
+          <Route exact path='/notifications' element={< Notifications />}></Route>
+          <Route exact path='/profile' element={< Profile />}></Route>
+          <Route exact path='/news' element={< News />}></Route>
+        </Routes>
+      </BrowserRouter>
+      
+    </div >
   );
 }
 

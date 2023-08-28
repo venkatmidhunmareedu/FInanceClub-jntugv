@@ -122,3 +122,11 @@ exports.verifyAuthUser = (req, res) => {
         })
     }
 }
+
+
+exports.sessionAuth = (req,res) => {
+    const { token } = req.query;
+    const decoded = jwt.decode(token);
+    console.log(decoded);
+    return res.status(200).json(decoded);
+}
