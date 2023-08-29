@@ -22,8 +22,19 @@ const Mytimer = ({ expiryTimestamp }) => {
     } = useTimer({ expiryTimestamp, onExpire: () => navigate("/login") });
 
     return (
-        <div>
-            Please login..redirecting in {seconds}
+        <div className='container d-flex justify-content-center align-items-center vh-100 vw-100 open-sans'>
+            <div className="card p-3">
+                <div className="modal-dialog p-3">
+                    <div className="modal-content p-3">
+                        <div className="modal-header m-2">
+                            <h5 className="modal-title fw-bolder">Please Login!</h5>
+                        </div>
+                        <div className="modal-body m-2">
+                            <p>Redrecting to login page in {seconds}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
