@@ -6,6 +6,7 @@ const News = () => {
   return (
     <div>
       <Navbar current="News" />
+      COMING SOON
       <Footer />
     </div>
   )

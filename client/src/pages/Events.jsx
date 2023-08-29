@@ -7,6 +7,7 @@ const Events = () => {
 
     <div>
       <Navbar current="Events" />
+      COMING SOON...
       <Footer />
     </div>
   )

@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 function generateToken(user) {
     return jwt.sign({
         user_name: user.user_name,
-        exp: Math.floor(Date.now() / 1000) + (60 * 60), // 1 hour
+        exp: Math.floor(Date.now() / 1000) + (10), // 10 s
         iss: "FinanceClub"
     }, process.env.JWT_SECRET);
 }
@@ -124,9 +124,23 @@ exports.verifyAuthUser = (req, res) => {
 }
 
 
-exports.sessionAuth = (req,res) => {
+exports.sessionAuth = (req, res) => {
     const { token } = req.query;
     const decoded = jwt.decode(token);
-    console.log(decoded);
-    return res.status(200).json(decoded);
+    if (token == null) {
+        return res.status(200).json({
+            expired: true
+        })
+    }
+    const currentTimestamp = Math.floor(Date.now() / 1000);
+    console.log(currentTimestamp)
+    console.log(decoded)
+    console.log({
+        decoded,
+        expired: decoded.exp < currentTimestamp
+    });
+    return res.status(200).json({
+        decoded,
+        expired: decoded.exp < currentTimestamp
+    });
 }

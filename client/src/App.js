@@ -16,6 +16,7 @@ import Events from "./pages/Events";
 import Notifications from "./pages/Notifications";
 import News from "./pages/News";
 import Profile from "./pages/Profile";
+import BlogEdit from "./pages/BlogEdit";
 
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route exact path='/notifications' element={< Notifications />}></Route>
           <Route exact path='/profile' element={< Profile />}></Route>
           <Route exact path='/news' element={< News />}></Route>
+          <Route exact path='/addBlog' element={< BlogEdit />}></Route>
         </Routes>
       </BrowserRouter>
       

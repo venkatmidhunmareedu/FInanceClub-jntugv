@@ -2,33 +2,40 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import BlogCard from "../components/Card";
 import Footer from "../components/Footer";
-import Filter from "../components/Filter";
 import axios from "axios"
 import PageLoader from "../loaders/PageLoader";
 import Loader from "../loaders/Loader";
-import HorizontalScrollbar from "../components/HorizontalScrollbar";
 import blogs_1 from "../data/blogs";
 import { TypeAnimation } from 'react-type-animation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
+import Session from "./Session";
 
 
 const Home = () => {
     const [user, setUser] = useState({});
     const [blogs, setblogs] = useState([])
     const [isLoaded, setisLoaded] = useState(false)
+    const [sessionData, setSession] = useState({});
 
+    const retriveSession = async () => {
+        const params = {
+            token: localStorage.getItem("jwtToken")
+        }
+        const Response = await axios.get(`${process.env.REACT_APP_URL}/user/sessionAuth`, { params });
+        setSession(Response.data);
+    }
     useEffect(() => {
         setisLoaded(false)
         const fetchData = async () => {
-
             try {
                 setisLoaded(false)
                 const Response = await axios.get(`${process.env.REACT_APP_URL}/getall`);
                 console.log(process.env.REACT_APP_URL)
                 console.log(Response.data.data)
                 setblogs(Response.data.data);
+                retriveSession();
                 setisLoaded(true)
             } catch (error) {
                 console.error(error);
@@ -37,11 +44,11 @@ const Home = () => {
         fetchData();
     }, []);
     const navigate = useNavigate();
-
     return (
         <>
             {/* {isLoaded ? "" : <PageLoader />} */}
-            <div className={isLoaded ? `` : ``}>
+            {(sessionData.expired && localStorage.getItem("verifyAuth") !== null ) && <Session />}
+            <div className={sessionData.expired && localStorage.getItem("verifyAuth") !== null ? `d-none` : ``}>
                 <Navbar current="Home" />
                 <div className="container">
                     <div className="row ">
@@ -134,24 +141,7 @@ const Home = () => {
                 </div>
 
                 <Footer />
-                {/* <div className="model fade show open-sans"   tabindex="-1" role="dialog">
-                    <div className="modal-dialog modal-dialog-centered">
-                        <div className="modal-content">
-                            <div className="modal-header text-center">
-                                <p className="modal-title fs-5" >Session Expired</p>
-                            </div>
-                            <div className="modal-body">
-                                The session duration has ended. Please login again to continue!
-                            </div>
-                            <div className="modal-footer text-center d-flex justify-content-center align-items-center ">
-                                <button type="button" className="btn btn-outline-primary btn-sm open-sans fw-bolder" onClick={(e) => {
-                                    e.preventDefault()
-                                    navigate();
-                                }}>Login</button>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
+
             </div>
         </>
     )

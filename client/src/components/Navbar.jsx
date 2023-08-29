@@ -104,6 +104,9 @@ export default function Navbar(props) {
                                         theme: "colored",
                                     });
                                 }
+                                else{
+                                    navigate("/addBlog")
+                                }
                             }}>
                                 Blog Now
                             </button>

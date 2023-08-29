@@ -6,7 +6,7 @@ const Profile = () => {
   return (
     <div>
       <Navbar current="Profile" />
-
+      COMING SOON...
       <Footer />
     </div>
   )
