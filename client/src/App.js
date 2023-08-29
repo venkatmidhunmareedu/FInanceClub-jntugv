@@ -34,6 +34,7 @@ function App() {
           <Route exact path='/notifications' element={< Notifications />}></Route>
           <Route exact path='/profile' element={< Profile />}></Route>
           <Route exact path='/news' element={< News />}></Route>
+          <Route exact path='/addBlog' element={< BlogEdit />}></Route>
           <Route exact path='/awwsnapp' element={< AwwSnapp />}></Route>
         </Routes>
       </BrowserRouter>

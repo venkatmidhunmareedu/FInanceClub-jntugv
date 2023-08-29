@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 function generateToken(user) {
     return jwt.sign({
         user_name: user.user_name,
-        exp: Math.floor(Date.now() / 1000) + (10), // 10 s
+        exp: Math.floor(Date.now() / 1000) + (60 * 60), // 1 hr
         iss: "FinanceClub"
     }, process.env.JWT_SECRET);
 }

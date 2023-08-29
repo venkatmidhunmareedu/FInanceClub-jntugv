@@ -474,3 +474,25 @@ a {
 .cursor-pointer {
   cursor: pointer;
 }
+
+
+.textarea {
+  background-color: #F5F2F6;
+  border : none;
+  outline: none;
+  resize: none;
+}
+
+
+.scrollable {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background-color: #7D2AE8;
+}
+
+::-webkit-scrollbar-track{
+  background-color: #7D2AE8;
+}

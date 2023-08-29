@@ -13,7 +13,7 @@ export default function Footer() {
                                 <span class="fs-5">FINANCE CLUB</span>
                             </a>
                             <ul class="list-unstyled small">
-                                <li class="mb-2">Designed and built with all the love in the world by the <a href="">Finance club</a> with the help of <a href="">our contributors</a>.</li>
+                                <li class="mb-2">Designed and built with all the love in the world by the <a href="">Finance club</a> with the help of <a href="https://github.com/venkatmidhunmareedu/FInanceClub-jntugv/graphs/contributors">our contributors</a>.</li>
                                 <li class="mb-2">Currently v1.0.0.</li>
                             </ul>
                         </div>
