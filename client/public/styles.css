@@ -1,5 +1,7 @@
 :root {
-  --primary : #7d2ae8;
+  --primary: #7d2ae8;
+  --babus: 'Bebas Neue', sans-serif;
+  --open-sans: 'Open Sans', sans-serif;
 }
 
 .babus {
@@ -397,7 +399,7 @@ a {
   border: #7D2AE8;
 }
 
-.show{
+.show {
   background-color: white;
 }
 
@@ -421,9 +423,9 @@ a {
   border-radius: 6px;
   font-weight: 500;
   color: var(--color);
- }
- 
- .common-btn:before {
+}
+
+.common-btn:before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -431,43 +433,43 @@ a {
   height: 150px;
   width: 200px;
   border-radius: 50%;
- }
- 
- .common-btn:hover {
+}
+
+.common-btn:hover {
   color: #fff;
- }
- 
- .common-btn:before {
+}
+
+.common-btn:before {
   top: 100%;
   left: 100%;
   transition: all .7s;
- }
- 
- .common-btn:hover:before {
+}
+
+.common-btn:hover:before {
   top: -30px;
   left: -30px;
- }
- 
- .common-btn:active:before {
+}
+
+.common-btn:active:before {
   background: var(--primary);
   transition: background 0s;
- }
+}
 
- .btn.btn-outline-primary {
-  color : #7D2AE8;
+.btn.btn-outline-primary {
+  color: #7D2AE8;
   background-color: #F5F2F6;
   border-color: #7D2AE8;
- }
+}
 
- .btn.btn-outline-primary:hover {
-  color : white;
+.btn.btn-outline-primary:hover {
+  color: white;
   background-color: #7D2AE8;
   border-color: white;
- }
+}
 
 
 .link-active {
-  color :#7D2AE8;
+  color: #7D2AE8;
 }
 
 
@@ -478,7 +480,7 @@ a {
 
 .textarea {
   background-color: #F5F2F6;
-  border : none;
+  border: none;
   outline: none;
   resize: none;
 }
@@ -493,6 +495,32 @@ a {
   background-color: #7D2AE8;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background-color: #7D2AE8;
+}
+
+
+
+.markdown h1 {
+  color: #7D2AE8;
+}
+
+h1,
+h2 {
+  color: #7D2AE8;
+  font-family: var(--open-sans);
+  font-weight: bolder;
+}
+
+
+
+.bs-callout {
+  margin: 20px 0;
+  padding: 15px 30px 15px 15px;
+  border-left: 5px solid #eee;
+}
+
+.bs-callout-primary {
+  background-color: white;
+  border-color: var(--primary);
 }
