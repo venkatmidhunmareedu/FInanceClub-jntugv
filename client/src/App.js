@@ -28,7 +28,7 @@ function App() {
         <Routes>
           <Route exact path="/login" element={<Login />} > </Route>
           <Route exact path='/' element={< Home />}></Route>
-          <Route exact path='/blog' element={< BlogPage />}></Route>
+          <Route exact path='/blog/:blogid' element={< BlogPage />}></Route>
           <Route exact path='/register_admin_blog' element={< Register />}></Route>
           <Route exact path='/events' element={< Events />}></Route>
           <Route exact path='/notifications' element={< Notifications />}></Route>

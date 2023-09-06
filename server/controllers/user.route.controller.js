@@ -5,6 +5,7 @@ const Blog = require("../models/Blog");
 const User = require("../models/User")
 const { verifyAuth } = require("../middleware/tokenAuth")
 const jwt = require("jsonwebtoken");
+const Draft = require("../models/Draft");
 
 function generateToken(user) {
     return jwt.sign({
@@ -143,4 +144,57 @@ exports.sessionAuth = (req, res) => {
         decoded,
         expired: decoded.exp < currentTimestamp
     });
+}
+
+exports.saveAsDraft = (req, res) => {
+    const { token, title, genre, content } = req.query;
+    const decoded = jwt.decode(token);
+    const user_id = User.findOne({ user_name: decoded.user_name })
+    const tempDraft = new Draft({
+        user_id: decoded.user_name,
+        title: title,
+        genre: genre,
+        content: content
+    });
+    tempDraft.save().then((result) => {
+        console.log("User : " + decoded.user_name + " saved the draft successfully");
+        return res.status(200).json({
+            message: "User " + decoded.user_name + " saved the draft successfully",
+            success: true
+        })
+    })
+        .catch((err) => {
+            console.log("User :" + decoded.user_name + "'s Draft save not successfull and the err is : " + err);
+            return res.status(200).json({
+                message: "User :" + decoded.user_name + "'s Draft save not successfull",
+                success: false
+            })
+        });
+}
+
+
+exports.publish = (req, res) => {
+    const { token, title, genre, content } = req.query;
+    const decoded = jwt.decode(token);
+    const user_id = User.findOne({ user_name: decoded.user_name })
+    const tempBlog = new Blog({
+        user_id: decoded.user_name,
+        title: title,
+        genre: genre,
+        content: content
+    });
+    tempBlog.save().then((result) => {
+        console.log("User : " + decoded.user_name + " Published successfully");
+        return res.status(200).json({
+            message: "User " + decoded.user_name + " Published successfully",
+            success: true
+        })
+    })
+        .catch((err) => {
+            console.log("User :" + decoded.user_name + "'s publishing not successfull and the err is : " + err);
+            return res.status(200).json({
+                message: "User :" + decoded.user_name + "'s publishing not successfull",
+                success: false
+            })
+        });
 }

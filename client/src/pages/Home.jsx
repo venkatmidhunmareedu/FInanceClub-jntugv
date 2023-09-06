@@ -27,16 +27,13 @@ const Home = () => {
         setSession(Response.data);
     }
     useEffect(() => {
-        setisLoaded(false)
         const fetchData = async () => {
             try {
-                setisLoaded(false)
                 const Response = await axios.get(`${process.env.REACT_APP_URL}/getall`);
                 console.log(process.env.REACT_APP_URL)
                 console.log(Response.data.data)
                 setblogs(Response.data.data);
                 retriveSession();
-                setisLoaded(true)
             } catch (error) {
                 console.error(error);
             }
@@ -118,8 +115,8 @@ const Home = () => {
                             </div>
                             <div className="container-fluid">
                                 <div className="row d-flex justify-content-start">
-                                    {blogs_1.map((blog) => {
-                                        return <BlogCard title={blog.title} genre={blog.genre} content={blog.content.slice(0, 90) + "...  "} user={blog.user} />
+                                    {blogs.map((blog) => {
+                                        return <BlogCard title={blog.title} genre={blog.genre} content={blog.content.slice(0, 90) + "...  "} user={blog.user_id} createdAt = {blog.createdAt} updatedAt = {blog.updatedAt} blogid = { blog._id}   />
                                     })}
                                 </div>
                             </div>

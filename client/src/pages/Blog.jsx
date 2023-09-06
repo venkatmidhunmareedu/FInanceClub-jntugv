@@ -3,13 +3,14 @@ import Navbar from "../components/Navbar";
 import BlogContent from "../components/BlogContent";
 import PageLoader from "../loaders/PageLoader";
 import Footer from "../components/Footer";
+import { useParams } from 'react-router-dom';
 
 const BlogPage = (props) => {
-    
+    const { blogid } = useParams();
     return (<div>
-        <Navbar />
-        <BlogContent />
-        < Footer />
+        <Navbar current="Home"/>
+        <BlogContent   blogid={blogid}/>
+        <Footer />
     </div>)
 }
 
