@@ -49,9 +49,8 @@ const Home = () => {
     const navigate = useNavigate();
     return (
         <>
-            { siteLoading && <PageLoader /> }
             {(sessionData.expired && localStorage.getItem("verifyAuth") !== null) && <Session />}
-            <div className={(sessionData.expired && localStorage.getItem("verifyAuth") !== null) ? `d-none` : `${siteLoading ? "d-none" : ""}`}>
+            <div className={(sessionData.expired && localStorage.getItem("verifyAuth") !== null) ? `d-none` : ``}>
                 <Navbar current="Home" />
                 <div className="container">
                     <div className="row ">
