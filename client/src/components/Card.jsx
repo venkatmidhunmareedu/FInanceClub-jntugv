@@ -12,28 +12,28 @@ export default function RecipeReviewCard(props) {
                         <h5 className="card-title open-sans fw-bolder color-1">{props.title}</h5>
                         <div className='row'>
                             <p className="col card-text text-start">{props.genre}</p>
-                            <small className="col text-end text-secondary">- Created on {new Date(props.createdAt).toLocaleString('en-US', {
-                                hour: 'numeric',
-                                minute: 'numeric',
-                                second: 'numeric',
-                                day: 'numeric',
-                                month: 'long',
-                                year: 'numeric',
-                            })}</small>
                         </div>
 
                         <small className='text-secondary'>{props.content}By <a href="">{props.user} </a> </small>
                         ...  <Link to={`/blog/${props.blogid}`}>Read Article</Link>
-                        <div className='row'>
-                            <small className="col text-end text-secondary">- Modified on {new Date(props.updatedAt).toLocaleString('en-US', {
-                                hour: 'numeric',
-                                minute: 'numeric',
-                                second: 'numeric',
-                                day: 'numeric',
-                                month: 'long',
-                                year: 'numeric',
-                            })}</small>
-                        </div>
+                    </div>
+                    <div className='row container my-2'>
+                        <small className="col-lg-6 col-md-6 col-sm-12 text-start text-secondary">- Created on {new Date(props.createdAt).toLocaleString('en-US', {
+                            hour: 'numeric',
+                            minute: 'numeric',
+                            second: 'numeric',
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric',
+                        })}</small>
+                        <small className="col-lg-6 col-md-6 col-sm-12 text-start text-secondary">- Modified on {new Date(props.updatedAt).toLocaleString('en-US', {
+                            hour: 'numeric',
+                            minute: 'numeric',
+                            second: 'numeric',
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric',
+                        })}</small>
                     </div>
                 </Fade>
             </div>
