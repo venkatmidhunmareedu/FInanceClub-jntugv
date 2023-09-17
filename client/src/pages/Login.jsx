@@ -15,6 +15,8 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [token, setToken] = useState("");
     const navigate = useNavigate();
+    const [isloading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     useEffect(() => {
 
@@ -24,13 +26,16 @@ const Login = () => {
             user_name: user_name,
             password: password
         }
+        setLoading(true);
         const response = await axios.get(`${process.env.REACT_APP_URL}/user/login`, { params }).then((res) => res).catch((err) => {
             console.log(err);
         })
+        setLoading(false);
         if (response.data.success) {
+            setSuccess(true);
             setToken(response.data.token);
             localStorage.setItem("jwtToken", response.data.token);
-            localStorage.setItem("verifyAuth" , true);
+            localStorage.setItem("verifyAuth", true);
             toast.success("Login Successfull!", {
                 position: "top-right",
                 autoClose: 5000,
@@ -76,6 +81,7 @@ const Login = () => {
                     theme="light"
                 />
                 <div className="container d-flex align-items-center justify-content-center vh-100" >
+                    <Navbar current="login" />
                     <form className=" col-sm-5 col-lg-4 col-xl-4 p-4" >
                         <div className="text-center">
                             <Link to="/"><img src={"jntugv-footer.png"} alt="Your Image" style={{ width: "100px", cursor: "pointer" }} class="img-fluid" /></Link>
@@ -99,12 +105,18 @@ const Login = () => {
                             </div>
                         </div> */}
                         <div className="text-center">
-                            <button class="btn btn-outline-primary fw-bolder" onClick={(e) => { e.preventDefault(); login(); }}>
-                                Submit
-                            </button>
+                            {
+                                isloading ? <button className="btn btn-outline-primary" type="button" disabled>
+                                    <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                </button> :
+                                    <button class="btn btn-outline-primary fw-bolder" onClick={(e) => { e.preventDefault(); login(); }}>
+                                        {success ? <i className="bi bi-check"></i> : "submit"}
+                                    </button>
+                            }
                         </div>
                     </form>
                 </div >
+                <Footer />
             </div>
         </div>
     )

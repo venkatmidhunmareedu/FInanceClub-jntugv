@@ -28,6 +28,7 @@ html {
 
 .nav-link.link-active {
   color: #7d2ae8;
+  border-bottom: 3.5px solid #7D2AE8;
 }
 
 
@@ -525,10 +526,20 @@ h2 {
   border-color: var(--primary);
 }
 
-.nav-link {
-  color :#7D2AE8;
+.tab.nav-link{
+  color: black;
+
 }
 
-.nav-link:hover {
-  color : black
+.tab.nav-link.active{
+  color: #7D2AE8;
+}
+
+
+.tab.nav-link::before {
+  color :black;
+}
+
+.tab.nav-link::after  {
+  color :black;
 }

@@ -21,17 +21,17 @@ export default function Footer() {
                             <h5>Links</h5>
                             <ul class="list-unstyled ">
                                 <li class="mb-2"><a href="/">Home</a></li>
-                                <li class="mb-2"><a href="/docs/5.3/">Popular today</a></li>
-                                <li class="mb-2"><a href="/docs/5.3/examples/">Academics</a></li>
-                                <li class="mb-2"><a href="https://icons.getbootstrap.com/">Courses</a></li>
-                                <li class="mb-2"><a href="https://themes.getbootstrap.com/">News</a></li>
-                                <li class="mb-2"><a href="https://blog.getbootstrap.com/">Blog</a></li>
+                                <li class="mb-2"><a href="/events">Events</a></li>
+                                <li class="mb-2"><a href="/games">Games</a></li>
+                                <li class="mb-2"><a href="/login">Admin login</a></li>
+                                <li class="mb-2"><a href="/register_admin_blog">Become a Member</a></li>
+                                <li class="mb-2"><a href="/addblog">Blog Now</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-2 mb-3">
                             <h5>Guides</h5>
                             <ul class="list-unstyled">
-                                <li class="mb-2"><a href="#" >Getting started</a></li>
+                                <li class="mb-2"><a href="https://www.markdownguide.org/cheat-sheet/" >Getting started with Markdown</a></li>
                             </ul>
                         </div>
                     </div>

@@ -9,6 +9,7 @@ const Profile = () => {
   const [user_name, setUser] = useState("deafault");
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(false);
+  const [current , setCurrent ] = useState("published");
   useEffect(() => {
     const get_profile = async () => {
       const params = {
@@ -26,38 +27,45 @@ const Profile = () => {
   return (
     <div className='open-sans'>
       <Navbar current="Profile" />
-      <div className='container justify-content-center align-items-center'>
-        <div className='container user-box'>
-          <div class="card mb-3" >
-            <div class="row g-0">
-              <div class="col-md-4 col-sm-4 tex-center">
-                <img src="profile.jpg" style={{ width: "100px" }} class="img-fluid" alt="..." />
-              </div>
-              <div class="col-md-8 col-sm-8">
-                <div class="card-body">
-                  <h5 class="card-title">{profile.user_name}</h5>
-                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                  <p class="card-text"><small class="text-body-secondary">Last published 3 mins ago</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className='container'>
+        <div className='container mb-4'>
+          <h2><p className='fw-bolder'>Hello {profile.user_name},</p></h2>
+          <h3>Your Dashboard</h3>
+        </div>
         <div class="card text-center">
           <div class="card-header container justify-content-center align-items-center">
             <ul class="nav nav-tabs card-header-tabs">
+              
               <li class="nav-item">
-                <a class="nav-link" aria-current="true" href="#">Drafts</a>
+                <a class={`tab nav-link ${current == "published" ? "active" : ""}`} href="#"  onClick={(e) => {  
+                  e.preventDefault();
+                  setCurrent("published")
+                }}>Published</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#">Published</a>
+                <a class={`tab nav-link ${current == "drafts" ? "active" : ""}`} href="#"  onClick={(e) => {  
+                  e.preventDefault();
+                  setCurrent("drafts")
+                }}>Your Drafts</a>
+              </li>
+              <li class="nav-item">
+                <a class={`tab nav-link ${current == "events" ? "active" : ""}`} href="#"  onClick={(e) => {  
+                  e.preventDefault();
+                  setCurrent("events")
+                }}>Your Events</a>
+              </li>
+              <li class="nav-item">
+                <a class={`tab nav-link ${current == "games" ? "active" : ""}`} href="#"  onClick={(e) => {  
+                  e.preventDefault();
+                  setCurrent("games")
+                }}>Your Games</a>
               </li>
             </ul>
           </div>
           <div class="card-body">
-            <Drafts />
+            {
+              current == "drafts" ? <Drafts /> : ""
+            }
           </div>
         </div>
       </div>

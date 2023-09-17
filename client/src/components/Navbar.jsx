@@ -7,7 +7,6 @@ import jntugv from "../jntugv-footer.png";
 
 export default function Navbar(props) {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-    const navs = ['Home', 'Notifications', 'Events', 'News', 'Login', 'Profile'];
     const [currentNav, setNav] = useState(props.current)
     const [token, setToken] = useState("");
     const [isAuth, setAuth] = useState(false);
@@ -66,10 +65,10 @@ export default function Navbar(props) {
                                 </li>
                                 {
                                     !localStorage.getItem("verifyAuth") === true ? <li className="nav-item">
-                                        <Link className={`${currentNav == "Login" && "link-active"}  nav-link mx-4`} aria-current="page" to="/login"  >Login</Link>
+                                        <Link className={`${currentNav == "login" && "link-active"}  nav-link mx-4`} aria-current="page" to="/login"  >Login</Link>
                                     </li> :
                                         <li className="nav-item">
-                                            <Link className={`${currentNav == "Login" && "link-active"}  nav-link mx-4`} aria-current="page" onClick={
+                                            <Link className={`nav-link mx-4`} aria-current="page" onClick={
                                                 (e) => {
                                                     e.preventDefault();
                                                     localStorage.removeItem("jwtToken");

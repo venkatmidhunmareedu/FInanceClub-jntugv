@@ -31,7 +31,7 @@ const Register = () => {
         const params = {
             user_name: user
         }
-        const response = await axios.get(`${process.env.REACT_APP_URL}ser/userIdCheck`,
+        const response = await axios.get(`${process.env.REACT_APP_URL}/user/userIdCheck`,
             {
                 params
             })
@@ -63,7 +63,7 @@ const Register = () => {
             user_name: user_name,
             password: password
         }
-        const response = await axios.get("http://localhost:5000/user/addUser", {
+        const response = await axios.get(`${process.env.REACT_APP_URL}/user/addUser}`, {
             params
         }).then((res) => {
             setTimeout(function () {
