@@ -3,7 +3,7 @@ import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
 import { Fade } from 'react-awesome-reveal';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
-
+import jntugv from "../jntugv-footer.png";
 
 export default function Navbar(props) {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);

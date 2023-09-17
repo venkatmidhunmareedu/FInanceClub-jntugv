@@ -7,7 +7,7 @@ exports.getBlogs = function (req, res) {
     var query = {}
     query.skip = parseInt(size) * parseInt(pagenum - 1)
     query.limit = parseInt(size)
-    Blog.find({}, {}, query).then((data) => {
+    Blog.find({}, {}, query).sort({ updatedAt : -1 }).then((data) => {
         res.status(200).json({
             data: data,
             count: data.length

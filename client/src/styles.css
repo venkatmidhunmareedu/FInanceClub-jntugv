@@ -524,11 +524,3 @@ h2 {
   background-color: white;
   border-color: var(--primary);
 }
-
-.nav-link {
-  color :#7D2AE8;
-}
-
-.nav-link:hover {
-  color : black
-}

@@ -24,11 +24,9 @@ const Login = () => {
             user_name: user_name,
             password: password
         }
-        console.log(params);
         const response = await axios.get("http://localhost:5000/user/login", { params }).then((res) => res).catch((err) => {
             console.log(err);
         })
-        console.log(response.data);
         if (response.data.success) {
             setToken(response.data.token);
             localStorage.setItem("jwtToken", response.data.token);

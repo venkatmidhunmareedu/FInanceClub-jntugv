@@ -198,3 +198,27 @@ exports.publish = (req, res) => {
             })
         });
 }
+
+
+exports.getProfile = async (req, res) => {
+    const { token } = req.query;
+    const decoded = jwt.decode(token);
+    const user_id = decoded.user_name;
+    const user = await User.findOne({ user_name: user_id });
+    await Draft.find({ user_name: user_id }).sort({ updatedAt: -1 }).then((data) => {
+        return res.status(200).json({
+            profile: { user },
+            user_name: user_id,
+            drafts: data,
+            count: Draft.count({})
+        })
+    })
+        .catch((err) => {
+            return res.status(200).json({
+                profile: user,
+                user_name: user_id,
+                drafts: [],
+                count: 0
+            })
+        })
+}

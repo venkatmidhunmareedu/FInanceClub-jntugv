@@ -16,7 +16,7 @@ import Session from "./Session";
 const Home = () => {
     const [user, setUser] = useState({});
     const [blogs, setblogs] = useState([])
-    const [isLoaded, setisLoaded] = useState(false)
+    const [isLoaded, setisLoaded] = useState(false);
     const [sessionData, setSession] = useState({});
 
     const retriveSession = async () => {
@@ -29,10 +29,12 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setisLoaded(true)
                 const Response = await axios.get(`${process.env.REACT_APP_URL}/getall`);
                 console.log(process.env.REACT_APP_URL)
                 console.log(Response.data.data)
                 setblogs(Response.data.data);
+                setisLoaded(false)
                 retriveSession();
             } catch (error) {
                 console.error(error);
@@ -44,7 +46,7 @@ const Home = () => {
     return (
         <>
             {/* {isLoaded ? "" : <PageLoader />} */}
-            {(sessionData.expired && localStorage.getItem("verifyAuth") !== null ) && <Session />}
+            {(sessionData.expired && localStorage.getItem("verifyAuth") !== null) && <Session />}
             <div className={sessionData.expired && localStorage.getItem("verifyAuth") !== null ? `d-none` : ``}>
                 <Navbar current="Home" />
                 <div className="container">
@@ -114,11 +116,13 @@ const Home = () => {
                                 /></label>
                             </div>
                             <div className="container-fluid">
-                                <div className="row d-flex justify-content-start">
-                                    {blogs.map((blog) => {
-                                        return <BlogCard title={blog.title} genre={blog.genre} content={blog.content.slice(0, 90) + "...  "} user={blog.user_id} createdAt = {blog.createdAt} updatedAt = {blog.updatedAt} blogid = { blog._id}   />
-                                    })}
-                                </div>
+                                {
+                                    isLoaded ? <Loader /> : <div className="row d-flex justify-content-start">
+                                        {blogs.map((blog) => {
+                                            return <BlogCard title={blog.title} genre={blog.genre} content={blog.content.slice(0, 90) + "...  "} user={blog.user_id} createdAt={blog.createdAt} updatedAt={blog.updatedAt} blogid={blog._id} />
+                                        })}
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div><br /><br />
