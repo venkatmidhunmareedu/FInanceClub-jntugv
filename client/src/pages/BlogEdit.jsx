@@ -190,11 +190,11 @@ const BlogEdit = () => {
                         }}  >
                             <span class={`spinner-border spinner-border-sm mx-1 ${loadingPublish ? "" : "d-none"}`}></span>
                             Publish</button>
-                        <div class="form-floating mb-3 col-6">
+                        <div class="form-floating mb-3 col-lg-6 col-sm-12 col-md-12">
                             <input type="text" class="form-control" id="floatingInput" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="name@example.com" required />
                             <label for="floatingInput">Title</label>
                         </div>
-                        <div className='col-6'>
+                        <div className='col-lg-6 col-sm-12 col-md-12'>
                             <select class="form-select form-select" aria-label="Small select example" value={genre} onChange={(e) => setGenre(e.target.value)}>
                                 <option selected>Select Genre</option>
                                 {

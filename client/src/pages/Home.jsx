@@ -129,7 +129,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div><br /><br />
-                    <nav aria-label="Page navigation example">
+                    {/* <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item disabled">
                                 <a class="page-link" href="#" tabindex="-1">&laquo; </a>
@@ -141,7 +141,7 @@ const Home = () => {
                                 <a class="page-link" href="#">&raquo;</a>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> */}
                 </div>
 
                 <Footer />
