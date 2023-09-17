@@ -47,7 +47,7 @@ export default function Navbar(props) {
                             {/* FINANCE CLUB <br /><span className="color-1">JNTUGV</span> */}
 
                             <div class="container">
-                                <img src={window.innerWidth > 400 ? "jntugv.png" : "jntugv-footer.png"} alt="Your Image" style={window.innerWidth > 400 ? { width: "250px" } : { width: "80px" }} class="img-fluid" />
+                                <img src={window.innerWidth > 400 ? process.env.PUBLIC_URL+"/jntugv.png" : process.env.PUBLIC_URL+"/jntugv-footer.png"} alt="Your Image" style={window.innerWidth > 400 ? { width: "250px" } : { width: "80px" }} class="img-fluid" />
                             </div>
                         </a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

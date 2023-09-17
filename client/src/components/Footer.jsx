@@ -9,7 +9,7 @@ export default function Footer() {
                     <div class="row">
                         <div class="col-lg-3 mb-3">
                             <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" href="/" aria-label="Bootstrap">
-                                <img src="jntugv-footer.png" alt="" width="50px" />
+                                <img src={process.env.PUBLIC_URL+"/jntugv-footer.png"} alt="" width="50px" />
                                 <span class="fs-5">FINANCE CLUB</span>
                             </a>
                             <ul class="list-unstyled small">
