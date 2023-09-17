@@ -31,7 +31,7 @@ const Register = () => {
         const params = {
             user_name: user
         }
-        const response = await axios.get('http://localhost:5000/user/userIdCheck',
+        const response = await axios.get(`${process.env.REACT_APP_URL}ser/userIdCheck`,
             {
                 params
             })

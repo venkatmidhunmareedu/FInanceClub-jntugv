@@ -55,7 +55,7 @@ const save = async (title, genre, blogData, setLD) => {
         content: blogData
     }
     setLD(true);
-    const response = await axios.get("http://localhost:5000/user/saveasdraft", { params }).then((res) => res).catch((err) => console.log(err));
+    const response = await axios.get(`${process.env.REACT_APP_URL}/user/saveasdraft`, { params }).then((res) => res).catch((err) => console.log(err));
     if (response.data.success) {
         toast.success(response.data.message, {
             position: "top-right",
@@ -93,7 +93,7 @@ const publish = async (title, genre, blogData, setLP) => {
         content: blogData
     }
     setLP(true);
-    const response = await axios.get("http://localhost:5000/user/publish", { params }).then((res) => res).catch((err) => console.log(err));
+    const response = await axios.get(`${process.env.REACT_APP_URL}/user/publish`, { params }).then((res) => res).catch((err) => console.log(err));
     if (response.data.success) {
         toast.success(response.data.message, {
             position: "top-right",

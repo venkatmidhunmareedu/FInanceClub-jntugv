@@ -24,7 +24,7 @@ const Login = () => {
             user_name: user_name,
             password: password
         }
-        const response = await axios.get("http://localhost:5000/user/login", { params }).then((res) => res).catch((err) => {
+        const response = await axios.get(`${process.env.REACT_APP_URL}/user/login`, { params }).then((res) => res).catch((err) => {
             console.log(err);
         })
         if (response.data.success) {
