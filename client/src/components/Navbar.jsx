@@ -59,13 +59,10 @@ export default function Navbar(props) {
                                     <a className={`${currentNav == "Home" && "link-active"}  nav-link mx-4`} aria-current="page" href="/"  >Home</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className={`${currentNav == "Notifications" && "link-active"}  nav-link mx-4`} aria-current="page" href="/notifications"   >Notifications</a>
-                                </li>
-                                <li className="nav-item">
                                     <a className={`${currentNav == "Events" && "link-active"}  nav-link mx-4`} aria-current="page" href="/events"  >Events</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className={`${currentNav == "News" && "link-active"}  nav-link mx-4`} aria-current="page" href="/news" >News</a>
+                                    <a className={`${currentNav == "Games" && "link-active"}  nav-link mx-4`} aria-current="page" href="/games" >Games</a>
                                 </li>
                                 {
                                     !localStorage.getItem("verifyAuth") === true ? <li className="nav-item">

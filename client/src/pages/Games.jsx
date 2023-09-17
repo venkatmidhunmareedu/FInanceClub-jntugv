@@ -2,14 +2,14 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-const News = () => {
+const Games = () => {
   return (
     <div>
-      <Navbar current="News" />
+      <Navbar current="Games" />
       COMING SOON
       <Footer />
     </div>
   )
 }
 
-export default News
+export default Games;
