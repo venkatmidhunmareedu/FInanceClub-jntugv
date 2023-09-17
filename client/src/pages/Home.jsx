@@ -18,6 +18,7 @@ const Home = () => {
     const [blogs, setblogs] = useState([])
     const [isLoaded, setisLoaded] = useState(false);
     const [sessionData, setSession] = useState({});
+    const [siteLoading, setSiteLoading] = useState(true);
 
     const retriveSession = async () => {
         const params = {
@@ -42,12 +43,15 @@ const Home = () => {
         };
         fetchData();
     }, []);
+    window.addEventListener('load', (event) => {
+        setSiteLoading(false);
+    });
     const navigate = useNavigate();
     return (
         <>
-            {/* {isLoaded ? "" : <PageLoader />} */}
+            { siteLoading && <PageLoader /> }
             {(sessionData.expired && localStorage.getItem("verifyAuth") !== null) && <Session />}
-            <div className={sessionData.expired && localStorage.getItem("verifyAuth") !== null ? `d-none` : ``}>
+            <div className={(sessionData.expired && localStorage.getItem("verifyAuth") !== null) ? `d-none` : `${siteLoading ? "d-none" : ""}`}>
                 <Navbar current="Home" />
                 <div className="container">
                     <div className="row ">
