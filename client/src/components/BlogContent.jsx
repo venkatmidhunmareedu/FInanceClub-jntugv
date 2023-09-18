@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Markdown from 'markdown-to-jsx'
-import { Table, Para, heading1, heading2, quote, code, image, list, olist } from "../components/BlogComps";
 import MDEditor from '@uiw/react-md-editor';
 import "../styles.css"
 import Loader from "../loaders/Loader";
@@ -16,6 +14,7 @@ const BlogContent = (props) => {
         const params = {
             blogid: blogid
         }
+        
         const recievedetails = async () => {
             setLoading(true);
             const response = await axios.get(`${process.env.REACT_APP_URL}/getone`, { params }).then((res) => res).catch((err) => console.log(err));
