@@ -16,6 +16,8 @@ const Register = () => {
     const [isAvail, setAvail] = useState(false);
     const [isUserValid, setUserValid] = useState(false);
     const navigate = useNavigate();
+    const [isloading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
 
 
     useEffect(() => {
@@ -45,31 +47,50 @@ const Register = () => {
         return response.data.user_check;
     }
 
-    const notify = (inp) => {
-        toast.success(inp, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-        });
+    const notify = (inp, success) => {
+        if (success) {
+            toast.success(inp, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+        else {
+            toast.error(inp, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+
     }
 
     const createUser = async (e) => {
+
         const params = {
             user_name: user_name,
             password: password
         }
-        const response = await axios.get(`${process.env.REACT_APP_URL}/user/addUser}`, {
+        setLoading(true);
+        await axios.get(`${process.env.REACT_APP_URL}/user/addUser`, {
             params
         }).then((res) => {
             setTimeout(function () {
                 navigate("/login")
             }, 2000);
-            notify(res.data.success ? "User creation Successful" : "User Creation is Not Succcessful Try Again")
+            setSuccess(true);
+            setLoading(false);
+            notify(res.data.success ? "User creation Successful" : "User Creation is Not Succcessful Try Again", res.data.success);
         })
             .catch((err) => {
                 console.log(err)
@@ -167,12 +188,17 @@ const Register = () => {
                     />
 
                     <div className="text-center">
-                        <button class={`btn btn-outline-primary fw-bolder ${validCheck && !isAvail && user_name.length > 0 && validateUser(user_name) ? "" : "disabled"}`} onClick={(e) => {
-                            e.preventDefault();
-                            createUser();
-                        }}   >
-                            Register
-                        </button>
+                        {
+                            isloading ? <button className="btn btn-outline-primary" type="button" disabled>
+                                <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            </button> :
+                                <button class={`btn btn-outline-primary fw-bolder ${validCheck && !isAvail && user_name.length > 0 && validateUser(user_name) ? "" : "disabled"}`} onClick={(e) => {
+                                    e.preventDefault();
+                                    createUser();
+                                }}   >
+                                    {success ? <i className="bi bi-check"></i> : "Register"}
+                                </button>
+                        }
                     </div>
                 </form>
             </div >
