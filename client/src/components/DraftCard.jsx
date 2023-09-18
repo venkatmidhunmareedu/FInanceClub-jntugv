@@ -11,8 +11,9 @@ const DraftCard = (props) => {
                         <h5 className="card-title open-sans fw-bolder color-1"><Link to={`/blog/${props.blogid}`}>{props.title}</Link></h5>
                     </div>
                     <div className="col-6 card-body text-end">
-                        <i className="cursor-pointer bi bi-arrow-bar-up"></i>
-                        <i className="cursor-pointer ms-5 bi bi-trash3"></i>
+                        <i class="cursor-pointer bi bi-pen"></i>
+                        <i className="cursor-pointer ms-4 bi bi-arrow-bar-up"></i>
+                        <i className="cursor-pointer ms-4 bi bi-trash3"></i>
                     </div>
                 </div>
             </div>

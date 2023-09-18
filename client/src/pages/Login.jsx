@@ -47,7 +47,7 @@ const Login = () => {
                 theme: "colored",
             });
             setTimeout(() => {
-                navigate("/");
+                navigate("/profile");
             }, 1500)
         }
         else {
