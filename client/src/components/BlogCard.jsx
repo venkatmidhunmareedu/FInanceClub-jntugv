@@ -23,11 +23,11 @@ const BlogCard = (props) => {
                     </div>
                 </div>
                 <div className="text-start card-body text-center">
-                    <Link onClick={(e) => {
+                    <button className='btn btn-outline-primary me-4' onClick={(e) => {
                         e.preventDefault()
 
-                    }}><i class="cursor-pointer bi bi-pen me-5 pe-5"></i></Link>
-                    <Link><i className="ms-5 ps-5 cursor-pointer bi bi-trash3"></i></Link>
+                    }}>Edit Blog</button>
+                    <button className='btn btn-outline-primary'>Delete Blog</button>
                 </div>
             </div>
         </div>

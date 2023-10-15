@@ -39,28 +39,28 @@ export default function Navbar(props) {
         <div >
             <nav className="navbar navbar-expand-lg bg-white shadow fixed-top">
 
-                <div className="container-fluid mx-5" >
-                    <Fade>
+                <div className="container" >
 
                         <a class="navbar-brand open-sans fw-bolder text-lg-spacing lt-sp-1 text-center" href="/" >
                             {/* FINANCE CLUB <br /><span className="color-1">JNTUGV</span> */}
 
                             <div class="container">
-                                <img src={window.innerWidth > 400 ? process.env.PUBLIC_URL+"/jntugv.png" : process.env.PUBLIC_URL+"/jntugv-footer.png"} alt="Your Image" style={window.innerWidth > 400 ? { width: "250px" } : { width: "80px" }} class="img-fluid" />
+                                <span className='me-3'><img src={window.innerWidth > 400 ? process.env.PUBLIC_URL+"/jntugv-footer.png" : process.env.PUBLIC_URL+"/jntugv-footer.png"} alt="Your Image" style={window.innerWidth > 400 ? { width: "70px" } : { width: "70px" }} class="img-fluid" /></span>
+                                <span className='open-sans fs-6 fw-bolder'>FINANCE CLUB <span style={{ color : "#7d2ae8" }}>GV</span></span>
                             </div>
                         </a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav ms-auto mb-sm-2 mb-lg-0 open-sans dark fs-6 ">
-                                <li className="nav-item">
-                                    <a className={`${currentNav == "Home" && "link-active"}  nav-link mx-4`} aria-current="page" href="/"  >Home</a>
+                            <ul className="navbar-nav mb-sm-2 ms-auto mb-lg-0 open-sans dark fs-6">
+                                <li className="nav-item col">
+                                    <a className={`${currentNav == "Home" && "link-active"}  nav-link  mx-4`} aria-current="page" href="/"  >Home</a>
                                 </li>
-                                <li className="nav-item">
+                                <li className="nav-item col">
                                     <a className={`${currentNav == "Events" && "link-active"}  nav-link mx-4`} aria-current="page" href="/events"  >Events</a>
                                 </li>
-                                <li className="nav-item">
+                                <li className="nav-item col">
                                     <a className={`${currentNav == "Games" && "link-active"}  nav-link mx-4`} aria-current="page" href="/games" >Games</a>
                                 </li>
                                 {
@@ -86,7 +86,7 @@ export default function Navbar(props) {
                                     </li> : ""
                                 }
                             </ul>
-                            <button class="button mb-sm-1 p-3 open-sans fw-bold  shadow" onClick={(e) => {
+                            <button class="button ms-auto mb-sm-1 p-3 open-sans fw-bold  shadow" onClick={(e) => {
                                 e.preventDefault();
                                 if (!localStorage.getItem("verifyAuth")) {
                                     toast.info("Please Login!", {
@@ -108,7 +108,6 @@ export default function Navbar(props) {
                             </button>
 
                         </div>
-                    </Fade>
 
                 </div>
                 <ToastContainer

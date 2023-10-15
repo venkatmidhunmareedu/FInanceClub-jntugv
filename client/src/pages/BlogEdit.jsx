@@ -7,80 +7,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import genres from "../data/genres";
 import axios from 'axios';
 import MDEditor, { selectWord } from "@uiw/react-md-editor";
+import PleaseLogin from './PleaseLogin';
 
 
-const Mytimer = ({ expiryTimestamp }) => {
-
-    const navigate = useNavigate();
-    const {
-        totalSeconds,
-        seconds,
-        minutes,
-        hours,
-        days,
-        isRunning,
-        start,
-        pause,
-        resume,
-        restart,
-    } = useTimer({ expiryTimestamp, onExpire: () => navigate("/login") });
-
-    return (
-        <div className='container d-flex justify-content-center align-items-center vh-100 vw-100 open-sans'>
-            <div className="card p-3">
-                <div className="modal-dialog p-3">
-                    <div className="modal-content p-3">
-                        <div className="modal-header m-2">
-                            <h5 className="modal-title fw-bolder">Please Login!</h5>
-                        </div>
-                        <div className="modal-body m-2">
-                            <p>Redrecting to login page in {seconds}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-
-
-const save = async (title, genre, blogData, setLD) => {
-    const params = {
-        token: localStorage.getItem("jwtToken"),
-        title: title,
-        genre: genre,
-        content: blogData
-    }
-    setLD(true);
-    const response = await axios.get(`${process.env.REACT_APP_URL}/user/saveasdraft`, { params }).then((res) => res).catch((err) => console.log(err));
-    if (response.data.success) {
-        toast.success(response.data.message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-        });
-        setLD(false);
-    }
-    else {
-        toast.error(response.data.message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-        });
-        setLD(false);
-    }
-}
 
 
 const publish = async (title, genre, blogData, setLP) => {
@@ -149,25 +78,6 @@ const BlogEdit = () => {
                 />
                 <p className='text-center fw-bolder'>To know more about Markdown Syntax visit <a target='_blank' href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a>
                     <div className='container text-start '>
-                        <button type='submit' className={`btn btn-outline-primary mb-3 ${(title == "" && blogData == "" && genre == "") ? "disabled" : ""}  ${loadingDraft ? "disabled" : ""}`} onClick={(e) => {
-                            if (title == "" && blogData == "") {
-                                toast.error("All Fields must not be empty", {
-                                    position: "top-right",
-                                    autoClose: 3000,
-                                    hideProgressBar: true,
-                                    closeOnClick: true,
-                                    pauseOnHover: true,
-                                    draggable: true,
-                                    progress: undefined,
-                                    theme: "colored",
-                                });
-                            }
-                            else {
-                                save(title, genre, blogData, setLD);
-                            }
-                        }}  >
-                            <span class={`spinner-border spinner-border-sm mx-1 ${loadingDraft ? "" : "d-none"}`}></span>
-                            Save as Draft</button>
                         <button type='submit' className={`btn btn-outline-primary mb-3 mx-2 ${(title == "" && blogData == "" && genre == "") ? "disabled" : ""}    ${loadingPublish ? "disabled" : ""} `} onClick={(e) => {
                             if (title == "" && blogData == "") {
                                 toast.error("All Fields must not be empty", {
@@ -218,7 +128,7 @@ const BlogEdit = () => {
         const time = new Date();
         time.setSeconds(time.getSeconds() + 4);
         return (
-            <Mytimer expiryTimestamp={time} />
+            <PleaseLogin expiryTimestamp={time} />
         )
     }
 
