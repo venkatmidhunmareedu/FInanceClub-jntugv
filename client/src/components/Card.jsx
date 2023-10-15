@@ -9,7 +9,7 @@ export default function RecipeReviewCard(props) {
             <div className="card" style={{ width: "100%" }}>
                 <Fade>
                     <div className="card-body text-start">
-                        <h5 className="card-title open-sans fw-bolder color-1">{props.title}</h5>
+                        <h5 className="card-title open-sans fw-bolder color-1"><Link to={`/blog/${props.blogid}`}>{props.title}</Link></h5>
                         <div className='row'>
                             <p className="col card-text text-start">{props.genre}</p>
                         </div>

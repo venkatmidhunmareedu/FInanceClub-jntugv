@@ -9,7 +9,7 @@ import "../jntugv-footer.png";
 const BlogPage = (props) => {
     const { blogid } = useParams();
     return (<div>
-        <Navbar current="Home"/>
+        <Navbar/>
         <BlogContent   blogid={blogid}/>
         <Footer />
     </div>)

@@ -3,8 +3,6 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useNavigate } from 'react-router-dom'
 import { useTimer } from 'react-timer-hook';
-import Markdown from 'markdown-to-jsx'
-import { Table, Para, heading1, heading2, quote, code, image, list, olist } from "../components/BlogComps";
 import { ToastContainer, toast } from 'react-toastify';
 import genres from "../data/genres";
 import axios from 'axios';
