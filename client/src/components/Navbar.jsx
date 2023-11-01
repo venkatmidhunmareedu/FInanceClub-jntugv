@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
-import { Fade } from 'react-awesome-reveal';
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
-import jntugv from "../jntugv-footer.png";
 
 export default function Navbar(props) {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -17,8 +15,7 @@ export default function Navbar(props) {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
         };
-        setToken(localStorage.getItem("jwtToken"));
-        console.log("hello : " + token);
+        const token = setToken(localStorage.getItem("jwtToken"));
         const params = {
             token: token
         }
@@ -45,8 +42,8 @@ export default function Navbar(props) {
                             {/* FINANCE CLUB <br /><span className="color-1">JNTUGV</span> */}
 
                             <div class="container">
-                                <span className='me-3'><img src={window.innerWidth > 400 ? process.env.PUBLIC_URL+"/jntugv-footer.png" : process.env.PUBLIC_URL+"/jntugv-footer.png"} alt="Your Image" style={window.innerWidth > 400 ? { width: "70px" } : { width: "70px" }} class="img-fluid" /></span>
-                                <span className='open-sans fs-6 fw-bolder'>FINANCE CLUB <span style={{ color : "#7d2ae8" }}>GV</span></span>
+                                <span className=''><img src={window.innerWidth > 400 ? process.env.PUBLIC_URL+"/jntugv-footer.png" : process.env.PUBLIC_URL+"/jntugv-footer.png"} alt="Your Image" style={window.innerWidth > 400 ? { width: "70px" } : { width: "70px" }} class="img-fluid" /></span>
+                                {window.innerWidth > 376 && <span className='open-sans fs-6 fw-bolder'> FINANCE CLUB <span style={{ color : "#7d2ae8" }}>GV</span></span>}
                             </div>
                         </a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,17 +52,17 @@ export default function Navbar(props) {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav mb-sm-2 ms-auto mb-lg-0 open-sans dark fs-6">
                                 <li className="nav-item col">
-                                    <a className={`${currentNav == "Home" && "link-active"}  nav-link  mx-4`} aria-current="page" href="/"  >Home</a>
+                                    <a className={`${currentNav === "Home" && "link-active"}  nav-link  mx-4`} aria-current="page" href="/"  >Home</a>
                                 </li>
                                 <li className="nav-item col">
-                                    <a className={`${currentNav == "Events" && "link-active"}  nav-link mx-4`} aria-current="page" href="/events"  >Events</a>
+                                    <a className={`${currentNav === "Events" && "link-active"}  nav-link mx-4`} aria-current="page" href="/events"  >Events</a>
                                 </li>
                                 <li className="nav-item col">
-                                    <a className={`${currentNav == "Games" && "link-active"}  nav-link mx-4`} aria-current="page" href="/games" >Games</a>
+                                    <a className={`${currentNav === "Games" && "link-active"}  nav-link mx-4`} aria-current="page" href="/games" >Games</a>
                                 </li>
                                 {
                                     !localStorage.getItem("verifyAuth") === true ? <li className="nav-item">
-                                        <Link className={`${currentNav == "login" && "link-active"}  nav-link mx-4`} aria-current="page" to="/login"  >Login</Link>
+                                        <Link className={`${currentNav === "login" && "link-active"}  nav-link mx-4`} aria-current="page" to="/login"  >Login</Link>
                                     </li> :
                                         <li className="nav-item">
                                             <Link className={`nav-link mx-4`} aria-current="page" onClick={
@@ -82,7 +79,7 @@ export default function Navbar(props) {
                                 }
                                 {
                                     localStorage.getItem("verifyAuth") ? <li className="nav-item">
-                                        <Link className={`${currentNav == "Profile" && "link-active"}  nav-link mx-4`} aria-current="page" to="/profile"  >Profile</Link>
+                                        <Link className={`${currentNav === "Profile" && "link-active"}  nav-link mx-4`} aria-current="page" to="/profile"  >Profile</Link>
                                     </li> : ""
                                 }
                             </ul>

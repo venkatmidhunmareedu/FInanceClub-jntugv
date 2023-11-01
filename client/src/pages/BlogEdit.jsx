@@ -93,7 +93,7 @@ const BlogEdit = () => {
                             }
                             else {
                                 publish(title, genre, blogData, setLP);
-
+                                setTimeout(() => navigate("/profile") , 2000)
                             }
                         }}  >
                             <span class={`spinner-border spinner-border-sm mx-1 ${loadingPublish ? "" : "d-none"}`}></span>
