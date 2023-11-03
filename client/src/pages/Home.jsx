@@ -120,9 +120,11 @@ const Home = () => {
                                         {blogs && blogs.map((blog) => {
                                             return <BlogCard title={blog.title} genre={blog.genre} content={blog.content.slice(0, 90) + "...  "} user={blog.user_id} createdAt={blog.createdAt} updatedAt={blog.updatedAt} blogid={blog._id} />
                                         })}
-                                    {!blogs && "No blogs here"}
                                     </div>
                                 }
+                                {blogs.length === 0 && <div className="container babus text-center">
+                                    <p className="fs-1 fw-bold text-secondary">No Blogs here...</p>
+                                </div>}
                             </div>
                         </div>
                     </div><br /><br />
