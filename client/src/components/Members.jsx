@@ -24,11 +24,12 @@ const Members = () => {
                 <tr className='color-1 fw-bold'>
                     <th scope="col">S.no</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Role</th>
                 </tr>
                 <div className='mb-2'></div>
                 <tbody>
                     {
-                        members.map((member,index) => <MemberCard name={member.user_name} index={index + 1} />)
+                        members.map((member,index) => <MemberCard name={member.user_name} role={member.role} index={index + 1} />)
                     }
                 </tbody>
             </table>

@@ -5,6 +5,7 @@ const MemberCard = (props) => {
         <tr className='border-bottm'> 
             <td>{props.index}</td>
             <td>{props.name}</td>
+            <td>{props.role}</td>
         </tr>
     )
 }
