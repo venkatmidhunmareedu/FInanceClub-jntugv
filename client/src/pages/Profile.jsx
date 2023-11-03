@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import axios from 'axios'
-import BlogCard from '../components/BlogCard'
 import Blogs from '../components/Blogs'
 import SmallLoader from '../loaders/SmallLoader'
 import PleaseLogin from './PleaseLogin'
@@ -23,7 +22,7 @@ const Profile = () => {
       }
       setLoading(true);
       const Response = await axios.get(`${process.env.REACT_APP_URL}/user/getprofile`, { params }).then((res) => res).catch((err) => {
-        console.log(err);
+        console.log();
       });
       setProfile(Response.data.profile);
       setLoading(false);

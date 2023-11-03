@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { redirect, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PasswordChecklist from "react-password-checklist"
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
@@ -29,7 +29,6 @@ const Register = () => {
         return !/\s/.test(input) && regex.test(input);
     }
     const userCheck = async (user) => {
-        console.log(user)
         const params = {
             user_name: user
         }
@@ -37,9 +36,8 @@ const Register = () => {
             {
                 params
             })
-            .then((res) => res).catch((err) => console.log(err));
+            .then((res) => res).catch((err) => console.log());
 
-        console.log(response.data.user_check);
         setAvail(response.data.user_check);
         if (user_name == "") {
             setAvail(false);
@@ -93,7 +91,7 @@ const Register = () => {
             notify(res.data.success ? "User creation Successful" : "User Creation is Not Succcessful Try Again", res.data.success);
         })
             .catch((err) => {
-                console.log(err)
+                console.log()
             })
     }
 

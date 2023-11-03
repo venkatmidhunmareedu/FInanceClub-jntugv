@@ -18,7 +18,6 @@ const BlogCard = (props) => {
         try {
             setDLoading(true);
             const response = await axios.get(`${process.env.REACT_APP_URL}/user/deletePost`, { params });
-            console.log(response);
             if (response.data.success) {
                 toast.success("Post Deleted Successfully!", {
                     position: "top-right",
@@ -59,7 +58,6 @@ const BlogCard = (props) => {
                 progress: undefined,
                 theme: "colored",
             });
-            console.log(err);
         }
     }
     return (
@@ -73,6 +71,7 @@ const BlogCard = (props) => {
                 <div className="text-start card-body text-center">
                     <button className='btn btn-outline-primary me-4' onClick={(e) => {
                         e.preventDefault()
+                        naviagte(`/blogupdate/${props.blogid}`)
                     }}>Edit Blog</button>
                     <button className='btn btn-outline-primary'
                         onClick={(e) => {

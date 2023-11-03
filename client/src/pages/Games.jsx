@@ -6,7 +6,7 @@ const Games = () => {
   return (
     <div>
       <Navbar current="Games" />
-      COMING SOON
+      <div className='container my-5 babus text-center py-5 fs-1'>Will be available soon...</div>
       <Footer />
     </div>
   )

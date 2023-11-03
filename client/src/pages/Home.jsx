@@ -3,9 +3,7 @@ import Navbar from "../components/Navbar";
 import BlogCard from "../components/Card";
 import Footer from "../components/Footer";
 import axios from "axios"
-import PageLoader from "../loaders/PageLoader";
 import Loader from "../loaders/Loader";
-import blogs_1 from "../data/blogs";
 import { TypeAnimation } from 'react-type-animation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -32,8 +30,6 @@ const Home = () => {
             try {
                 setisLoaded(true)
                 const Response = await axios.get(`${process.env.REACT_APP_URL}/getall`);
-                console.log(process.env.REACT_APP_URL)
-                console.log(Response.data.data)
                 setblogs(Response.data.data);
                 setisLoaded(false)
                 retriveSession();
@@ -94,7 +90,7 @@ const Home = () => {
                             </div>
                         </div> */}
                         <div className="col-12">
-                            <div class="form-floating mb-3">
+                            {/* <div class="form-floating mb-3">
                                 <input type="email" class="form-control open-sans fw-bolder" id="floatingInput" placeholder="name@example.com" autoComplete="off" />
                                 <label for="floatingInput" className="open-sans fw-bolder text-secondary"> <i className="bi bi-search"></i> <TypeAnimation
                                     sequence={[
@@ -117,7 +113,7 @@ const Home = () => {
                                     style={{ fontSize: '16px', display: 'inline-block' }}
                                     repeat={Infinity}
                                 /></label>
-                            </div>
+                            </div> */}
                             <div className="container-fluid">
                                 {
                                     isLoaded ? <Loader /> : <div className="row d-flex justify-content-start">

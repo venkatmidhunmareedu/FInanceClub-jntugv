@@ -3,7 +3,7 @@ import axios from "axios";
 import MDEditor from '@uiw/react-md-editor';
 import "../styles.css"
 import Loader from "../loaders/Loader";
-import { redirect,useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const BlogContent = (props) => {
@@ -21,7 +21,7 @@ const BlogContent = (props) => {
         
         const recievedetails = async () => {
             setLoading(true);
-            const response = await axios.get(`${process.env.REACT_APP_URL}/getone`, { params }).then((res) => res).catch((err) => console.log(err));
+            const response = await axios.get(`${process.env.REACT_APP_URL}/getone`, { params }).then((res) => res).catch((err) => console.log());
             if(!response.data.success){
                 navigate("/blogNotFound")
             }

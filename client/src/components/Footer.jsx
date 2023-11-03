@@ -9,8 +9,8 @@ export default function Footer() {
                     <div class="row">
                         <div class="col-lg-3 mb-3">
                             <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" href="/" aria-label="Bootstrap">
-                                <img src={process.env.PUBLIC_URL+"/jntugv-footer.png"} alt="" width="50px" />
-                                <span class="fs-5">FINANCE CLUB</span>
+                                <img src={process.env.PUBLIC_URL + "/jntugv-footer.png"} alt="" width="50px" />
+                                <span class="fs-5">FINANCE CLUB GV</span>
                             </a>
                             <ul class="list-unstyled small">
                                 <li class="mb-2">Designed and built with all the love in the world by the <a href="">Finance club</a> with the help of <a href="https://github.com/venkatmidhunmareedu/FInanceClub-jntugv/graphs/contributors">our contributors</a>.</li>
@@ -21,6 +21,7 @@ export default function Footer() {
                             <h5>Links</h5>
                             <ul class="list-unstyled ">
                                 <li class="mb-2"><a href="/">Home</a></li>
+                                <li class="mb-2"><a href="/home">Blogs</a></li>
                                 <li class="mb-2"><a href="/events">Events</a></li>
                                 <li class="mb-2"><a href="/games">Games</a></li>
                                 <li class="mb-2"><a href="/login">Admin login</a></li>
@@ -32,6 +33,14 @@ export default function Footer() {
                             <h5>Guides</h5>
                             <ul class="list-unstyled">
                                 <li class="mb-2"><a href="https://www.markdownguide.org/cheat-sheet/" >Getting started with Markdown</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-2 offset-lg-1 mb-3">
+                            <h5>Contact us</h5>
+                            <ul class="list-unstyled ">
+                                <li class="mb-2"><a href="mailto:financeclubjntugv@gmail.com">Mail us</a></li>
+                                <li class="mb-2"><a href="https://chat.whatsapp.com/BodXqQ1VYekDaYVj3igAx6">Join us on our Whatsapp Community</a></li>
+                                <li class="mb-2"><a href="https://www.youtube.com/channel/UCldys_PyIkn8D2m3Oq7SVFA">Subscribe our youtube channel</a></li>
                             </ul>
                         </div>
                     </div>

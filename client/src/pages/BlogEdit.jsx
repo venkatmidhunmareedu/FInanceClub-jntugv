@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useNavigate } from 'react-router-dom'
-import { useTimer } from 'react-timer-hook';
 import { ToastContainer, toast } from 'react-toastify';
 import genres from "../data/genres";
 import axios from 'axios';
@@ -20,7 +19,7 @@ const publish = async (title, genre, blogData, setLP) => {
         content: blogData
     }
     setLP(true);
-    const response = await axios.get(`${process.env.REACT_APP_URL}/user/publish`, { params }).then((res) => res).catch((err) => console.log(err));
+    const response = await axios.get(`${process.env.REACT_APP_URL}/user/publish`, { params }).then((res) => res).catch((err) => console.log());
     if (response.data.success) {
         toast.success(response.data.message, {
             position: "top-right",

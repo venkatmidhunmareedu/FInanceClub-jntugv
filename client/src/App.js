@@ -19,6 +19,8 @@ import BlogEdit from "./pages/BlogEdit";
 import AwwSnapp from "./pages/AwwSnapp";
 import PageNotFound from "./pages/PageNotFound";
 import BlogNotFound from "./pages/BlogNotFound";
+import BlogUpdate from "./pages/BlogUpdate";
+import MainPage from "./pages/MainPage";
 
 
 
@@ -28,15 +30,17 @@ function App() {
       <BrowserRouter >
         <Routes>
           <Route exact path="/login" element={<Login />} > </Route>
-          <Route exact path='/' element={< Home />}></Route>
+          <Route exact path='/home' element={< Home />}></Route>
           <Route exact path='/blog/:blogid' element={< BlogPage />}></Route>
           <Route exact path='/blogNotFound' element={<BlogNotFound/>}></Route>
           <Route exact path='/register_admin_blog' element={< Register />}></Route>
+          <Route exact path='/' element={< MainPage/>}></Route>
           <Route exact path='/events' element={< Events />}></Route>
           <Route exact path='/games' element={< Games />}></Route>
           <Route exact path='/profile' element={< Profile />}></Route>
           <Route exact path='/addBlog' element={< BlogEdit />}></Route>
           <Route exact path='/awwsnapp' element={< AwwSnapp />}></Route>
+          <Route exact path="/blogupdate/:blogid" element={<BlogUpdate />} />
           <Route path="*" element={<PageNotFound/>}></Route>
         </Routes>
       </BrowserRouter>
