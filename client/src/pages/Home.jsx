@@ -120,6 +120,7 @@ const Home = () => {
                                         {blogs && blogs.map((blog) => {
                                             return <BlogCard title={blog.title} genre={blog.genre} content={blog.content.slice(0, 90) + "...  "} user={blog.user_id} createdAt={blog.createdAt} updatedAt={blog.updatedAt} blogid={blog._id} />
                                         })}
+                                    {!blogs && "No blogs here"}
                                     </div>
                                 }
                             </div>
