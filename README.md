@@ -1,6 +1,6 @@
-# JNTUGV College Finance Club Blogging Website
+# Finance Club GV
 
-This repository contains the source code for a blogging website that showcases news and articles related to JNTUGV College Finance Club.
+This repository contains the source code for a blogging website that showcases blogs related to JNTUGV College Finance Club.
 
 The project is divided into two directories: `client` and `server`. The `client` directory contains the React frontend, while the `server` directory contains the Node.js backend.
 
